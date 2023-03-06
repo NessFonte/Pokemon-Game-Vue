@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <img class="logo" alt="Vue logo" src="./assets/logo.png">
+    <PokemonPage />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PokemonPage from './pages/PokemonPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PokemonPage
   }
 }
 </script>
@@ -22,5 +24,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.logo{
+  padding-right: 1500px;
+  width: 100px;
 }
 </style>
