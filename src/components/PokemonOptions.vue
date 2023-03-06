@@ -27,6 +27,7 @@ export default {
         cursor: pointer;
         margin-bottom: 10px;
         width: 250px;
+        margin-right: 80px;
     }
 
     li:hover {
