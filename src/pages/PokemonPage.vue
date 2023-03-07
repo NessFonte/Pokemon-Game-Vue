@@ -5,6 +5,12 @@
             <h1 align="center">¿Quién es este Pokémon?</h1>
             <PokemonImage :pokemonId="pokemon.id" :showPokemon="showPokemon"/>
             <PokemonOptions :pokemons="pokemonArr" @selection="checkAnswer"/>
+
+            <template v-if="showAnswer">
+                <h2>{{message}}</h2>
+                <button @click="newPokemon">Nuevo Pokémon</button>
+            </template>
+                    
         </div>
     </div>
     
@@ -26,7 +32,9 @@ export default {
         return{
             pokemonArr: [],
             pokemon: null,
-            showPokemon: false
+            showPokemon: false,
+            showAnswer: false,
+            message: ''
         }
     },
 
@@ -40,6 +48,22 @@ export default {
 
         checkAnswer(pokemonId){
             this.showPokemon = true
+            this.showAnswer = true
+
+            if(pokemonId === this.pokemon.id){
+                this.message = `Correcto, es ${this.pokemon.name}`
+            }
+            else{
+                this.message = `Upss...era ${this.pokemon.name}`
+            }
+        },
+
+        newPokemon(){
+            this.showAnswer = false,
+            this.showPokemon = false,
+            this.pokemonArr = [],
+            this.pokemon = null,
+            this.mixPokemonArray()
         }
     }, 
 
@@ -48,3 +72,16 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+button{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 180px;
+    margin-right: 60px;
+}
+
+</style>
