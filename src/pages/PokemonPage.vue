@@ -11,8 +11,6 @@ import PokemonImage from '@/components/PokemonImage.vue'
 import PokemonOptions from '@/components/PokemonOptions.vue'
 import getPokemonOptions from '@/helpers/getPokemonOptions.js'
 
-console.log(getPokemonOptions())
-
 export default {
     name: "Pokemon",
     components: {
@@ -31,6 +29,10 @@ export default {
             this.pokemonArr = await getPokemonOptions()
             console.log(this.pokemonArr)
         }
+    }, 
+
+    mounted(){
+        this.mixPokemonArray()
     }
 }
 </script>
